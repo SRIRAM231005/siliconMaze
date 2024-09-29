@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Poke Battle</title>
+</head>
+<body>
+    <div id="header">
+        <div class="logo"><img src="pokeLogo.jpg" alt="Comp" style="height: 70px; width: 200px;"></div>
+    </div>
+    <div>
+    <div id="battleGround"></div> //displays selected pokemons
+    <div id="display"></div>  // displays the moves of each pokemon and the winner
+    </div>
+    <button class="reset" onclick="reset();">Reset</button>
+    <center><div style="font-size: large; color: white;">Please Reload if you don't see the expected output. It takes time to get data from the API</div></center>
+    <script src="battle.js"></script>
+    <script>
+        // function to reset
+        function reset(){
+            let namear = JSON.parse(localStorage.getItem('namearray'));
+            const change1 = document.querySelector(`.${namear[0].Name}`);
+            change1.style.background = 'transparent';
+            const change2 = document.querySelector(`.${namear[1].Name}`);
+            change2.style.background = 'transparent';
+            const reset = document.querySelector('.reset');
+            localStorage.removeItem("namearray");
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
